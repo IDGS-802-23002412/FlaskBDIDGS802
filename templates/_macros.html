@@ -1,0 +1,32 @@
+{% macro datos(name, placeholder, type="text") %}
+<div class="mb-3">
+    
+    <label for="{{name}}" class="form-label">{{name}}:</label>
+    <input type="{{type}}" class="form-control" id="{{name}}" name="{{name}}" placeholder="{{placeholder}}">
+</div>
+
+{% endmacro %}
+
+{% macro radio(name, label, value) %}
+<div class="mb-3">
+    <label class="me-3">
+        <input type="radio" name="{{ name }}" value="{{value}}"> {{label}}
+    </label>
+</div>
+{% endmacro %}
+
+{% macro campoNuevo(field) %}
+
+<td>{{field.label}}</td>
+<dd>{{field(**kwargs) | safe}}</dd>
+
+{% if field.errors %}
+    {% for error in field.errors%}
+        <li style="color: red"> {{error}} </li>
+    {% endfor %}
+{% endif %}
+
+{%endmacro%}
+
+
+        
