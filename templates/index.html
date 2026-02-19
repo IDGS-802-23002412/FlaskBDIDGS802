@@ -1,7 +1,8 @@
 {% extends "layout.html" %}
 {% block container %}
 {% import "_macros.html" as macros %}
-
+<section class="bg-neutral-primary">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12"></div>
     <form class="max-w-sm mx-auto" method="POST">
         <div class="mb-5">
             <label for="email" class="block mb-2.5 text-sm font-medium text-heading">Your email</label>
@@ -25,5 +26,7 @@
         <button type="submit"
             class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Submit</button>
     </form>
+    </div>
 
+</section>
 {% endblock %}
