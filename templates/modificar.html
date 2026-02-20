@@ -6,53 +6,43 @@
     <div class="w-full max-w-xl bg-white shadow-lg rounded-base p-8">
         <div class="text-center mb-8">
             <h2 class="text-2xl font-semibold text-heading">
-                Registro de Alumno
+                Editar Registro
             </h2>
         </div>
 
-        <form action="" method="POST" novalidate class="space-y-6">
+        <form action="{{ url_for('modificar') }}" method="POST" novalidate class="space-y-6">
             {{ form.csrf_token }}
-            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            
+            <input type="hidden" name="id" value="{{ request.args.get('id') }}">
 
             <div class="relative z-0 w-full group">
-                {{ macros.campoNuevo(form.nombre, class="block py-2.5 px-0 w-full
-                text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium
-                appearance-none focus:outline-none focus:ring-0 focus:border-brand peer")}}
+                {{ macros.campoNuevo(form.nombre, class="w-full mt-1 p-2 border border-default rounded-base bg-neutral-primary-medium focus:ring-2 focus:ring-brand outline-none") }}
             </div>
 
             <div class="relative z-0 w-full group">
-                {{ macros.campoNuevo(form.apaterno, class="block py-2.5 px-0 w-full
-                text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium
-                appearance-none focus:outline-none focus:ring-0 focus:border-brand peer")}}
+                {{ macros.campoNuevo(form.apaterno, class="w-full mt-1 p-2 border border-default rounded-base bg-neutral-primary-medium focus:ring-2 focus:ring-brand outline-none") }}
             </div>
 
             <div class="relative z-0 w-full group">
-                {{ macros.campoNuevo(form.email, class="block py-2.5 px-0 w-full
-                text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium
-                appearance-none focus:outline-none focus:ring-0 focus:border-brand peer")}}
+                {{ macros.campoNuevo(form.email,  class="w-full mt-1 p-2 border border-default rounded-base bg-neutral-primary-medium focus:ring-2 focus:ring-brand outline-none") }}
             </div>
 
             <div class="flex gap-4 pt-4">
-                <button type="submit"
-                    class="flex-1 text-white bg-brand border border-transparent
+                <button type="submit" class="flex-1 text-white bg-brand border border-transparent
                     hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium
                     shadow-xs font-medium rounded-base text-sm px-4 py-2.5
                     transition duration-200">
                     Enviar
                 </button>
 
-                <a href="/"
-                    class="flex-1 text-center text-white bg-default-medium border border-transparent
+                <a href="{{ url_for('index') }}" class="flex-1 text-center text-white bg-default-medium border border-transparent
                     hover:bg-heading focus:ring-4 focus:ring-default-medium
                     shadow-xs font-medium rounded-base text-sm px-4 py-2.5
                     transition duration-200">
                     Cancelar
                 </a>
             </div>
-
         </form>
-
     </div>
 </section>
-
 {% endblock %}

@@ -2,31 +2,56 @@
 {% block container %}
 {% import "_macros.html" as macros %}
 <section class="bg-neutral-primary">
-    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12"></div>
-    <form class="max-w-sm mx-auto" method="POST">
-        <div class="mb-5">
-            <label for="email" class="block mb-2.5 text-sm font-medium text-heading">Your email</label>
-            <input type="email" id="email"
-                class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
-                placeholder="name@flowbite.com" required />
-        </div>
-        <div class="mb-5">
-            <label for="password" class="block mb-2.5 text-sm font-medium text-heading">Your password</label>
-            <input type="password" id="password"
-                class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
-                placeholder="••••••••" required />
-        </div>
-        <label for="remember" class="flex items-center mb-5">
-            <input id="remember" type="checkbox" value=""
-                class="w-4 h-4 border border-default-medium rounded-xs bg-neutral-secondary-medium focus:ring-2 focus:ring-brand-soft"
-                required />
-            <p class="ms-2 text-sm font-medium text-heading select-none">I agree with the <a href="#"
-                    class="text-fg-brand hover:underline">terms and conditions</a>.</p>
-        </label>
-        <button type="submit"
-            class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Submit</button>
-    </form>
-    </div>
+    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
+        <a href="/alumnos" class="inline-flex items-center text-white bg-brand hover:bg-brand-strong 
+   focus:ring-4 focus:ring-brand-medium font-medium rounded-base text-sm 
+   px-4 py-2.5 shadow-xs focus:outline-none">
+            + Nuevo
+        </a>
+        <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
+            <table class="w-full text-sm text-left rtl:text-right text-body">
 
+                <thead class="text-sm text-body bg-neutral-secondary-medium border-b border-default-medium">
+                    <tr>
+                        <th class="px-6 py-3 font-medium">Nombre</th>
+                        <th class="px-6 py-3 font-medium">Apaterno</th>
+                        <th class="px-6 py-3 font-medium">Email</th>
+                        <th class="px-6 py-3 font-medium text-center">Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for alum in alumno %}
+                    <tr class="bg-neutral-primary-soft border-b border-default">
+
+                        <td class="px-6 py-4">{{ alum.nombre }}</td>
+                        <td class="px-6 py-4">{{ alum.apaterno }}</td>
+                        <td class="px-6 py-4">{{ alum.email }}</td>
+
+                        <td class="px-6 py-4 text-center space-x-2">
+
+                            <a href="detalles?id={{ alum.id }}"
+                                class="px-3 py-1 text-xs font-medium text-white bg-blue-500 rounded hover:bg-blue-600">
+                                Detalles
+                            </a>
+
+                            <a href="modificar?id={{ alum.id }}"
+                                class="px-3 py-1 text-xs font-medium text-white bg-yellow-500 rounded hover:bg-yellow-600">
+                                Editar
+                            </a>
+
+                            <a href="eliminar?id={{ alum.id }}"
+                                class="px-3 py-1 text-xs font-medium text-white bg-red-500 rounded hover:bg-red-600">
+                                Eliminar
+                            </a>
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+    </div>
 </section>
 {% endblock %}

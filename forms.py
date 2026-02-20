@@ -54,6 +54,6 @@ class UserForm2(Form):
             validators.DataRequired(message='El campo es requerido')
     ])
 
-    correo = EmailField('Correo',[
+    email = EmailField('correo',[
             validators.Email(message='Ingrese un correo válido')
     ])

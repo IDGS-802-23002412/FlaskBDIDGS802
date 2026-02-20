@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block container %}
+{% import "_macros.html" as macros %}
+
+<section class="bg-neutral-primary">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
+        <div class="relative bg-neutral-primary-soft max-w-xs w-full p-6 border border-default rounded-base shadow-xs">
+
+            <button id="dropdownButton" data-dropdown-toggle="dropdown"
+                class="absolute top-2 end-2 text-body hover:text-heading bg-neutral-primary-soft border border-transparent hover:bg-neutral-tertiary focus:ring-4 focus:ring-neutral-tertiary rounded-base p-1.5 focus:outline-none"
+                type="button">
+                <span class="sr-only">Opciones</span>
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-width="3"
+                        d="M6 12h.01m6 0h.01m5.99 0h.01" />
+                </svg>
+            </button>
+
+            <form class="flex flex-col gap-4 mt-6">
+
+                <div>
+                    <label class="text-sm text-body">Nombre</label>
+                    <input type="text" name="nombre" value="{{ nombre }}"
+                        class="w-full mt-1 p-2 border border-default rounded-base bg-neutral-primary-medium focus:ring-2 focus:ring-brand outline-none">
+                </div>
+
+                <div>
+                    <label class="text-sm text-body">Apaterno</label>
+                    <input type="text" name="apaterno" value="{{ apaterno }}"
+                        class="w-full mt-1 p-2 border border-default rounded-base bg-neutral-primary-medium focus:ring-2 focus:ring-brand outline-none">
+                </div>
+
+                <div>
+                    <label class="text-sm text-body">Email</label>
+                    <input type="text" name="email" value="{{ email }}"
+                        class="w-full mt-1 p-2 border border-default rounded-base bg-neutral-primary-medium focus:ring-2 focus:ring-brand outline-none">
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>
+{% endblock %}
