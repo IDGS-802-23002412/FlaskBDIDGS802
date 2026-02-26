@@ -32,8 +32,9 @@ def alumnos():
     if request.method == 'POST':
         alumn = Alumnos(
             nombre=create_form.nombre.data,
-            apaterno=create_form.apaterno.data,
-            email=create_form.email.data
+            apellidos=create_form.apellidos.data,
+            email=create_form.email.data,
+            telefono = create_form.telefono.data
         )
         db.session.add(alumn)
         db.session.commit()
@@ -47,29 +48,35 @@ def detalles():
         id = request.args.get('id')
         alum1 = db.session.query(Alumnos).filter(Alumnos.id == id).first()
         nombre = alum1.nombre
-        apaterno = alum1.apaterno
+        apellidos = alum1.apellidos
         email = alum1.email
+        telefono = alum1.telefono
     
-    return render_template("detalles.html", nombre=nombre, apaterno=apaterno, email=email)
+    return render_template("detalles.html", nombre=nombre, apellidos=apellidos, email=email, telefono=telefono)
 
 @app.route("/modificar", methods=['GET', 'POST'])
 def modificar():
     create_form = forms.UserForm2(request.form)
+
     if request.method == 'GET':
         id = request.args.get('id')
         alum1 = db.session.query(Alumnos).filter(Alumnos.id == id).first()
-        create_form.id.data = request.args.get('id')
+
+        create_form.id.data = id
         create_form.nombre.data = alum1.nombre
-        create_form.apaterno.data = alum1.apaterno
+        create_form.apellidos.data = alum1.apellidos
         create_form.email.data = alum1.email
+        create_form.telefono.data = alum1.telefono
 
     if request.method == 'POST':
         id = create_form.id.data
+        alum1 = db.session.query(Alumnos).filter(Alumnos.id == id).first()  # ← ESTA LÍNEA FALTABA
+
         alum1.nombre = create_form.nombre.data.strip()
-        alum1.apaterno = create_form.apaterno.data
+        alum1.apellidos = create_form.apellidos.data
         alum1.email = create_form.email.data
+        alum1.telefono = create_form.telefono.data
         
-        db.session.add(alum1)
         db.session.commit()
         return redirect(url_for('index'))
 
@@ -78,19 +85,25 @@ def modificar():
 @app.route("/eliminar", methods=['GET', 'POST'])
 def eliminar():
     create_form = forms.UserForm2(request.form)
+
     if request.method == 'GET':
         id = request.args.get('id')
         alum1 = db.session.query(Alumnos).filter(Alumnos.id == id).first()
-        create_form.id.data = request.args.get('id')    
+
+        create_form.id.data = id
         create_form.nombre.data = alum1.nombre
-        create_form.apaterno.data = alum1.apaterno
+        create_form.apellidos.data = alum1.apellidos
         create_form.email.data = alum1.email
+        create_form.telefono.data = alum1.telefono
+
     if request.method == 'POST':
         id = create_form.id.data
         alum1 = Alumnos.query.get(id)
-        
-        db.session.add(alum1)
-        db.session.commit()
+
+        if alum1:
+            db.session.delete(alum1)
+            db.session.commit()
+
         return redirect(url_for('index'))
 
     return render_template("eliminar.html", form=create_form)
