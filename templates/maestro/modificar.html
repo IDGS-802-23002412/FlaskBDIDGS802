@@ -6,15 +6,15 @@
     <div class="w-full max-w-xl bg-white shadow-lg rounded-base p-8">
         <div class="text-center mb-8">
             <h2 class="text-2xl font-semibold text-heading">
-                Eliminar Registro
+                Editar Registro
             </h2>
         </div>
 
-        <form action="{{ url_for('eliminar') }}" method="POST" novalidate class="space-y-6">
-            {{ form.csrf_token }}
+        <form action="{{ url_for('maestros.modificar') }}" method="POST" novalidate class="space-y-6">
+            {{form.csrf_token}}
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             
-            <input type="hidden" name="id" value="{{ request.args.get('id') }}">
+            <input type="hidden" name="matricula" value="{{ form.matricula.data }}">
 
             <div class="relative z-0 w-full group">
                 {{ macros.campoNuevo(form.nombre, class="w-full mt-1 p-2 border border-default rounded-base bg-neutral-primary-medium focus:ring-2 focus:ring-brand outline-none") }}
@@ -25,11 +25,11 @@
             </div>
 
             <div class="relative z-0 w-full group">
-                {{ macros.campoNuevo(form.email,  class="w-full mt-1 p-2 border border-default rounded-base bg-neutral-primary-medium focus:ring-2 focus:ring-brand outline-none") }}
+                {{ macros.campoNuevo(form.especialidad,  class="w-full mt-1 p-2 border border-default rounded-base bg-neutral-primary-medium focus:ring-2 focus:ring-brand outline-none") }}
             </div>
 
             <div class="relative z-0 w-full group">
-                {{ macros.campoNuevo(form.telefono,  class="w-full mt-1 p-2 border border-default rounded-base bg-neutral-primary-medium focus:ring-2 focus:ring-brand outline-none") }}
+                {{ macros.campoNuevo(form.email,  class="w-full mt-1 p-2 border border-default rounded-base bg-neutral-primary-medium focus:ring-2 focus:ring-brand outline-none") }}
             </div>
 
             <div class="flex gap-4 pt-4">
@@ -37,10 +37,11 @@
                     hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium
                     shadow-xs font-medium rounded-base text-sm px-4 py-2.5
                     transition duration-200">
-                    Eliminar
+                    Enviar
                 </button>
 
-                <a href="{{ url_for('index') }}" class="flex-1 text-center text-white bg-default-medium border border-transparent
+                <a href="/maestros"
+                    class="flex-1 text-center text-white bg-default-medium border border-transparent
                     hover:bg-heading focus:ring-4 focus:ring-default-medium
                     shadow-xs font-medium rounded-base text-sm px-4 py-2.5
                     transition duration-200">

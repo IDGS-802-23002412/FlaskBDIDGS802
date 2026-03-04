@@ -62,3 +62,23 @@ class UserForm2(Form):
             validators.NumberRange(min=1, max=10, message='Ingrese un telefono valido')
     ])
 
+class MaestrosForm(Form):
+    matricula = IntegerField('matricula')
+    nombre = StringField('Nombre',[
+            validators.DataRequired(message='El campo es requerido'),
+            validators.Length(min=3, max=10, message='Ingrese nombre válido')
+    ])
+
+    apellidos = StringField('Apellidos',[
+            validators.DataRequired(message='El campo es requerido')
+    ])
+
+    especialidad = StringField('Especialidad', [
+        validators.DataRequired(message='El campo es requerido')
+    ])
+
+    email = EmailField('Email',[
+            validators.Email(message='Ingrese un correo válido')
+    ])
+
+

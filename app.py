@@ -4,12 +4,14 @@ from flask_wtf.csrf import CSRFProtect
 from config import DevelopmentConfig 
 from flask import g 
 from flask_migrate import Migrate
+from maestros.routes import maestros_bp
 
 import forms 
 from models import db, Alumnos
 
 app = Flask(__name__) 
 app.config.from_object(DevelopmentConfig) 
+app.register_blueprint(maestros_bp)
 db.init_app(app) 
 csrf = CSRFProtect()
 migrate = Migrate(app,db)
@@ -70,7 +72,7 @@ def modificar():
 
     if request.method == 'POST':
         id = create_form.id.data
-        alum1 = db.session.query(Alumnos).filter(Alumnos.id == id).first()  # ← ESTA LÍNEA FALTABA
+        alum1 = db.session.query(Alumnos).filter(Alumnos.id == id).first()  
 
         alum1.nombre = create_form.nombre.data.strip()
         alum1.apellidos = create_form.apellidos.data
