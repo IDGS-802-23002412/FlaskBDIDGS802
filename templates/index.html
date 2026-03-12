@@ -1,59 +1,44 @@
 {% extends "layout.html" %}
 {% block container %}
 {% import "_macros.html" as macros %}
+
 <section class="bg-neutral-primary">
-    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
-        <a href="/alumnos" class="inline-flex items-center text-white bg-brand hover:bg-brand-strong 
-   focus:ring-4 focus:ring-brand-medium font-medium rounded-base text-sm 
-   px-4 py-2.5 shadow-xs focus:outline-none">
-            + Nuevo
-        </a>
-        <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
-            <table class="w-full text-sm text-left rtl:text-right text-body">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
 
-                <thead class="text-sm text-body bg-neutral-secondary-medium border-b border-default-medium">
-                    <tr>
-                        <th class="px-6 py-3 font-medium">Nombre</th>
-                        <th class="px-6 py-3 font-medium">Apellidos</th>
-                        <th class="px-6 py-3 font-medium">Email</th>
-                        <th class="px-6 py-3 font-medium">Telefono</th>
-                        <th class="px-6 py-3 font-medium text-center">Acciones</th>
-                    </tr>
-                </thead>
+        <h1 class="mb-4 mt-8 text-4xl font-bold tracking-tight text-heading md:text-5xl lg:text-6xl">
+            BIENVENIDO A ESCUELA IDS802
+        </h1>
 
-                <tbody>
-                    {% for alum in alumno %}
-                    <tr class="bg-neutral-primary-soft border-b border-default">
+        <p class="mb-8 text-lg font-normal text-body lg:text-xl sm:px-16 xl:px-48">
+            Nuestra institución educativa se enfoca en brindar formación académica de calidad,
+            fomentando el desarrollo del conocimiento, la innovación y el crecimiento personal
+            de nuestros estudiantes. Ofrecemos programas diseñados para preparar a los alumnos
+            para los retos profesionales y tecnológicos del mundo actual.
+        </p>
 
-                        <td class="px-6 py-4">{{ alum.nombre }}</td>
-                        <td class="px-6 py-4">{{ alum.apellidos }}</td>
-                        <td class="px-6 py-4">{{ alum.email }}</td>
-                        <td class="px-6 py-4">{{ alum.telefono }}</td>
+        <div class="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
 
-                        <td class="px-6 py-4 text-center space-x-2">
+            <a href="/cursos"
+            class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-base px-5 py-3 focus:outline-none">
+                Ver cursos
+            </a>
 
-                            <a href="detalles?id={{ alum.id }}"
-                                class="px-3 py-1 text-xs font-medium text-white bg-blue-500 rounded hover:bg-blue-600">
-                                Detalles
-                            </a>
+            <a href="/inscripciones"
+            class="inline-flex items-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-base px-5 py-3 focus:outline-none">
 
-                            <a href="modificar?id={{ alum.id }}"
-                                class="px-3 py-1 text-xs font-medium text-white bg-yellow-500 rounded hover:bg-yellow-600">
-                                Editar
-                            </a>
+                <svg class="w-4 h-4 me-1.5 -ms-0.5" xmlns="http://www.w3.org/2000/svg"
+                width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round"
+                    stroke-linejoin="round" stroke-width="2"
+                    d="M14 6H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1Zm7 11-6-2V9l6-2v10Z"/>
+                </svg>
 
-                            <a href="eliminar?id={{ alum.id }}"
-                                class="px-3 py-1 text-xs font-medium text-white bg-red-500 rounded hover:bg-red-600">
-                                Eliminar
-                            </a>
+                Ver inscripciones
+            </a> 
 
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-
-            </table>
         </div>
-    </div>
+
+  </div>
 </section>
+
 {% endblock %}

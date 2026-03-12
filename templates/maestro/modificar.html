@@ -2,8 +2,9 @@
 {% block container %}
 {% import "_macros.html" as macros %}
 
-<section class="bg-neutral-primary min-h-screen flex items-center justify-center">
-    <div class="w-full max-w-xl bg-white shadow-lg rounded-base p-8">
+<section class="bg-neutral-primary">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
+        <div class="relative bg-neutral-primary-soft max-w-xs w-full p-6 border border-default rounded-base shadow-xs">
         <div class="text-center mb-8">
             <h2 class="text-2xl font-semibold text-heading">
                 Editar Registro
@@ -49,6 +50,7 @@
                 </a>
             </div>
         </form>
+        </div>
     </div>
 </section>
 {% endblock %}

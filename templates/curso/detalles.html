@@ -19,31 +19,33 @@
             <form class="flex flex-col gap-4 mt-6">
 
                 <div>
-                    <label class="text-sm text-body">Nombre</label>
+                    <label class="text-sm text-body">Nombre del curso</label>
                     <input type="text" name="nombre" value="{{ nombre }}"
                         class="w-full mt-1 p-2 border border-default rounded-base bg-neutral-primary-medium focus:ring-2 focus:ring-brand outline-none">
                 </div>
 
                 <div>
-                    <label class="text-sm text-body">apellidos</label>
-                    <input type="text" name="apaterno" value="{{ apellidos }}"
+                    <label class="text-sm text-body">Descripción</label>
+                    <input type="text" name="descripcion" value="{{ descripcion }}"
                         class="w-full mt-1 p-2 border border-default rounded-base bg-neutral-primary-medium focus:ring-2 focus:ring-brand outline-none">
                 </div>
 
                 <div>
-                    <label class="text-sm text-body">Email</label>
-                    <input type="text" name="email" value="{{ email }}"
+                    <label class="text-sm text-body">Maestro</label>
+                    <input type="text" name="maestro" value="{{ maestro }}"
                         class="w-full mt-1 p-2 border border-default rounded-base bg-neutral-primary-medium focus:ring-2 focus:ring-brand outline-none">
                 </div>
 
-                <div>
-                    <label class="text-sm text-body">Telefono</label>
-                    <input type="text" name="email" value="{{ telefono }}"
-                        class="w-full mt-1 p-2 border border-default rounded-base bg-neutral-primary-medium focus:ring-2 focus:ring-brand outline-none">
-                </div>
             </form>
 
-        </div>
+            <div class="flex gap-4 pt-4">
+                <a href="/cursos" class="flex-1 text-center text-white bg-default-medium border border-transparent
+                    hover:bg-heading focus:ring-4 focus:ring-default-medium
+                    shadow-xs font-medium rounded-base text-sm px-4 py-2.5
+                    transition duration-200">
+                    Cerrar
+                </a>
+            </div>
     </div>
 </section>
 {% endblock %}

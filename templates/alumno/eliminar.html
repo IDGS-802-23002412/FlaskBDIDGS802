@@ -2,15 +2,17 @@
 {% block container %}
 {% import "_macros.html" as macros %}
 
-<section class="bg-neutral-primary min-h-screen flex items-center justify-center">
-    <div class="w-full max-w-xl bg-white shadow-lg rounded-base p-8">
+<section class="bg-neutral-primary">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
+        <div class="relative bg-neutral-primary-soft max-w-xs w-full p-6 border border-default rounded-base shadow-xs">
+
         <div class="text-center mb-8">
             <h2 class="text-2xl font-semibold text-heading">
                 Eliminar Registro
             </h2>
         </div>
 
-        <form action="{{ url_for('eliminar') }}" method="POST" novalidate class="space-y-6">
+        <form action="{{ url_for('alumnos.eliminar') }}" method="POST" novalidate class="space-y-6">
             {{ form.csrf_token }}
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             
@@ -40,7 +42,7 @@
                     Eliminar
                 </button>
 
-                <a href="{{ url_for('index') }}" class="flex-1 text-center text-white bg-default-medium border border-transparent
+                <a href="{{ url_for('alumnos.alumnos') }}" class="flex-1 text-center text-white bg-default-medium border border-transparent
                     hover:bg-heading focus:ring-4 focus:ring-default-medium
                     shadow-xs font-medium rounded-base text-sm px-4 py-2.5
                     transition duration-200">
@@ -48,6 +50,7 @@
                 </a>
             </div>
         </form>
+        </div>
     </div>
 </section>
 {% endblock %}

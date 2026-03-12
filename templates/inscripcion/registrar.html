@@ -6,7 +6,7 @@
     <div class="w-full max-w-xl bg-white shadow-lg rounded-base p-8">
         <div class="text-center mb-8">
             <h2 class="text-2xl font-semibold text-heading">
-                Registro de Alumno
+                Registro de Inscripción
             </h2>
         </div>
 
@@ -15,28 +15,17 @@
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
             <div class="relative z-0 w-full group">
-                {{ macros.campoNuevo(form.nombre, class="block py-2.5 px-0 w-full
+                {{ macros.campoNuevo(form.curso_id, class="block py-2.5 px-0 w-full
                 text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium
                 appearance-none focus:outline-none focus:ring-0 focus:border-brand peer")}}
             </div>
 
             <div class="relative z-0 w-full group">
-                {{ macros.campoNuevo(form.apellidos, class="block py-2.5 px-0 w-full
+                {{ macros.campoNuevo(form.alumno_id, class="block py-2.5 px-0 w-full
                 text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium
                 appearance-none focus:outline-none focus:ring-0 focus:border-brand peer")}}
             </div>
 
-            <div class="relative z-0 w-full group">
-                {{ macros.campoNuevo(form.email, class="block py-2.5 px-0 w-full
-                text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium
-                appearance-none focus:outline-none focus:ring-0 focus:border-brand peer")}}
-            </div>
-
-            <div class="relative z-0 w-full group">
-                {{ macros.campoNuevo(form.telefono, class="block py-2.5 px-0 w-full
-                text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium
-                appearance-none focus:outline-none focus:ring-0 focus:border-brand peer")}}
-            </div>
 
             <div class="flex gap-4 pt-4">
                 <button type="submit"
@@ -47,7 +36,7 @@
                     Enviar
                 </button>
 
-                <a href="/"
+                <a href="/inscripciones"
                     class="flex-1 text-center text-white bg-default-medium border border-transparent
                     hover:bg-heading focus:ring-4 focus:ring-default-medium
                     shadow-xs font-medium rounded-base text-sm px-4 py-2.5

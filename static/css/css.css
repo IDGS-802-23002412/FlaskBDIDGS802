@@ -1,0 +1,111 @@
+:root{
+    --brand:#2563eb;
+    --brand-strong:#1d4ed8;
+    --brand-medium:#93c5fd;
+
+    --neutral-primary:#f5f7fb;
+    --neutral-primary-soft:#ffffff;
+    --neutral-primary-medium:#f1f5f9;
+
+    --neutral-secondary-medium:#e2e8f0;
+
+    --default:#d1d5db;
+    --default-medium:#9ca3af;
+
+    --heading:#111827;
+    --body:#4b5563;
+}
+
+.bg-neutral-primary{
+    background: var(--neutral-primary);
+}
+
+.bg-neutral-primary-soft{
+    background: var(--neutral-primary-soft);
+}
+
+.bg-neutral-primary-medium{
+    background: var(--neutral-primary-medium);
+}
+
+.bg-neutral-secondary-medium{
+    background: var(--neutral-secondary-medium);
+}
+
+.text-heading{
+    color: var(--heading);
+}
+
+.text-body{
+    color: var(--body);
+}
+
+.border-default{
+    border:1px solid var(--default);
+}
+
+.border-default-medium{
+    border-color:var(--default-medium);
+}
+
+/* ===== Botones ===== */
+.bg-brand{
+    background: var(--brand);
+}
+
+.bg-brand:hover{
+    background: var(--brand-strong);
+}
+
+.hover\:bg-brand-strong:hover{
+    background: var(--brand-strong);
+}
+
+.focus\:ring-brand-medium:focus{
+    box-shadow:0 0 0 3px var(--brand-medium);
+}
+
+/* ===== Botones secundarios ===== */
+.bg-default-medium{
+    background: var(--default-medium);
+}
+
+.bg-default-medium:hover{
+    background:#374151;
+}
+
+input{
+    font-size:14px;
+}
+
+input:focus{
+    border-color:var(--brand);
+}
+
+.shadow-xs{
+    box-shadow:0 2px 6px rgba(0,0,0,0.05);
+}
+
+.rounded-base{
+    border-radius:10px;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+th{
+    font-weight:600;
+}
+
+.alert{
+    padding:10px 15px;
+    border-radius:6px;
+    margin-bottom:15px;
+}
+
+.alert-success{
+    background:#dcfce7;
+    color:#166534;
+    border:1px solid #bbf7d0;
+}

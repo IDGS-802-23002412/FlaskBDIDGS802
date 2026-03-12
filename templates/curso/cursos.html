@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+{% block container %}
+{% import "_macros.html" as macros %}
+
+<section class="bg-neutral-primary">
+    
+    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
+
+        <a href="/cursos/nuevo"
+           class="inline-flex items-center text-white bg-brand hover:bg-brand-strong 
+           focus:ring-4 focus:ring-brand-medium font-medium rounded-base text-sm 
+           px-4 py-2.5 shadow-xs focus:outline-none">
+            + Nuevo
+        </a>
+
+        <br><br>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="mb-4 p-3 text-sm text-yellow-800 bg-yellow-100 rounded-base">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
+            <table class="w-full text-sm text-left rtl:text-right text-body">
+
+                <thead class="text-sm text-body bg-neutral-secondary-medium border-b border-default-medium">
+                    <tr>
+                        <th class="px-6 py-3 font-medium">Nombre del Curso</th>
+                        <th class="px-6 py-3 font-medium">Descripción</th>
+                        <th class="px-6 py-3 font-medium">Maestro</th>
+                        <th class="px-6 py-3 font-medium text-center">Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for curs in curso %}
+                    <tr class="bg-neutral-primary-soft border-b border-default">
+
+                        <td class="px-6 py-4">{{ curs.nombre }}</td>
+                        <td class="px-6 py-4">{{ curs.descripcion }}</td>
+                        <td class="px-6 py-4">
+                            {{ curs.maestro.nombre }} {{ curs.maestro.apellidos }}
+                        </td>
+
+                        <td class="px-6 py-4 text-center space-x-2">
+
+                            <a href="/cursos/detalles?id={{ curs.id }}"
+                               class="px-3 py-1 text-xs font-medium text-white bg-blue-500 rounded hover:bg-blue-600">
+                                Detalles
+                            </a>
+
+                            <a href="/cursos/modificar?id={{ curs.id }}"
+                               class="px-3 py-1 text-xs font-medium text-white bg-yellow-500 rounded hover:bg-yellow-600">
+                                Editar
+                            </a>
+
+                            <br><br>
+
+                            <a href="/cursos/eliminar?id={{ curs.id }}"
+                               class="px-3 py-1 text-xs font-medium text-white bg-red-500 rounded hover:bg-red-600">
+                                Eliminar
+                            </a>
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

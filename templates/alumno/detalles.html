@@ -19,26 +19,14 @@
             <form class="flex flex-col gap-4 mt-6">
 
                 <div>
-                    <label class="text-sm text-body">Matricula</label>
-                    <input type="text" name="nombre" value="{{ matricula }}"
-                        class="w-full mt-1 p-2 border border-default rounded-base bg-neutral-primary-medium focus:ring-2 focus:ring-brand outline-none">
-                </div>
-
-                <div>
                     <label class="text-sm text-body">Nombre</label>
                     <input type="text" name="nombre" value="{{ nombre }}"
                         class="w-full mt-1 p-2 border border-default rounded-base bg-neutral-primary-medium focus:ring-2 focus:ring-brand outline-none">
                 </div>
 
                 <div>
-                    <label class="text-sm text-body">Apellidos</label>
-                    <input type="text" name="apellidos" value="{{ apellidos }}"
-                        class="w-full mt-1 p-2 border border-default rounded-base bg-neutral-primary-medium focus:ring-2 focus:ring-brand outline-none">
-                </div>
-
-                <div>
-                    <label class="text-sm text-body">Especialidad</label>
-                    <input type="text" name="especialidad" value="{{ especialidad }}"
+                    <label class="text-sm text-body">apellidos</label>
+                    <input type="text" name="apaterno" value="{{ apellidos }}"
                         class="w-full mt-1 p-2 border border-default rounded-base bg-neutral-primary-medium focus:ring-2 focus:ring-brand outline-none">
                 </div>
 
@@ -47,10 +35,16 @@
                     <input type="text" name="email" value="{{ email }}"
                         class="w-full mt-1 p-2 border border-default rounded-base bg-neutral-primary-medium focus:ring-2 focus:ring-brand outline-none">
                 </div>
+
+                <div>
+                    <label class="text-sm text-body">Telefono</label>
+                    <input type="text" name="email" value="{{ telefono }}"
+                        class="w-full mt-1 p-2 border border-default rounded-base bg-neutral-primary-medium focus:ring-2 focus:ring-brand outline-none">
+                </div>
             </form>
 
             <div class="flex gap-4 pt-4">
-                <a href="/maestros"
+                <a href="/alumnos"
                     class="flex-1 text-center text-white bg-default-medium border border-transparent
                     hover:bg-heading focus:ring-4 focus:ring-default-medium
                     shadow-xs font-medium rounded-base text-sm px-4 py-2.5
@@ -58,7 +52,7 @@
                     Cerrar
                 </a>
             </div>
-
+            
         </div>
     </div>
 </section>
